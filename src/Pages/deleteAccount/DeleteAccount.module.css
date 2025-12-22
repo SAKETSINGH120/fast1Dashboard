@@ -1,0 +1,67 @@
+.container {
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  outline: none;
+}
+
+.button {
+  width: 100%;
+  padding: 12px;
+  background-color: #e53935;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.button:hover:not(:disabled) {
+  background-color: #d32f2f;
+}
+
+.button:disabled {
+  background-color: #f8bbd0;
+  cursor: not-allowed;
+}
+
+.error {
+  color: #d32f2f;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.success {
+  text-align: center;
+  color: #2e7d32;
+}
+
+.success h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.success p {
+  font-size: 16px;
+}

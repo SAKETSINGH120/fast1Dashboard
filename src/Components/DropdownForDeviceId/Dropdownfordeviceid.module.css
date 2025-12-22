@@ -1,0 +1,51 @@
+.button_dropdown {
+    cursor: pointer;
+}
+
+.uolist_style {
+    list-style: none;
+    padding: 0;
+    margin-top: 5px;
+    padding: 1% !important;
+    margin-bottom: 0;
+}
+
+.list_style {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+}
+
+
+.button_options {
+    background: black;
+    color: white;
+    border-radius: 3px;
+    border: none;
+    display: flex;
+    align-items: center;
+}
+
+
+.button_options_one {
+    background: transparent;
+    border-radius: 3px;
+    border: none;
+    display: flex;
+    align-items: center;
+}
+
+.add_id_button {
+    color: black;
+    background: white;
+    font-family: Avenir Next LT Pro;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: 0px;
+    padding: 6px 12px 6px 12px;
+    border-radius: 10px;
+    width: unset;
+    box-shadow: 1px 1px 4px rgb(7, 7, 7);
+    border: none;
+    margin-top: 0.5rem;
+}

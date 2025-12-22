@@ -1,0 +1,402 @@
+.image_size {
+  height: 100px;
+  width: 120px;
+}
+.tableEventRow {
+  font-size: 20px !important;
+  font-weight: 500;
+}
+.ThemeEvent {
+  width: 150px !important;
+  /* font-size: 18px; */
+}
+.ThemeEvent1 {
+  width: 200px !important;
+  /* font-size: 18px; */
+}
+.labelImge {
+  color: rgb(248, 57, 88);
+}
+
+.DeleteButoonEvent {
+  border-radius: 10px;
+  background-color: rgba(224, 51, 104, 0.15);
+  border: none;
+  font-size: 18px;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.highlighted_delete {
+  background-color: #ffa5c0;
+  color: #fdf5f7;
+  border: 2px solid rgb(242, 156, 156);
+}
+
+
+.delete_modal_text{
+  text-align: left;
+  margin-bottom: 24px;
+  
+  color: #000;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px; /* 140% */
+  letter-spacing: 0.28px;
+  
+  }
+  
+
+.button_background0 {
+  background: pink !important;
+  border: none !important;
+  padding: 3px 20px;
+  border-radius: 10px;
+  color: black !important;
+  font-weight: 600 !important;
+}
+.button_background0 :hover {
+  background: none !important;
+}
+
+.button_background1 {
+  background: pink !important;
+  border: none !important;
+  padding: 3px 20px;
+  margin-right: 20px;
+  border-radius: 10px;
+  color: black !important;
+  height: 45px;
+  font-weight: 600;
+}
+.button_background1 :hover {
+  background: none !important;
+}
+
+.DeleteButton {
+  border-radius: 10px;
+  background-color: rgba(224, 51, 104, 0.15);
+  border: none;
+  font-size: 18px;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.highlighted-delete {
+  background-color: #ffa5c0;
+  color: #fdf5f7;
+  border: 2px solid rgb(242, 156, 156);
+}
+
+
+.delete_button_of_delete_section:hover{
+  box-shadow:3px 3px 7px 3px #888888;
+}
+
+
+
+.Viewbutton {
+  background-color: #e03368;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 6px, 10px, 6px, 8px;
+  color: white;
+}
+.imagehaeding {
+  color: rgb(248, 57, 88);
+}
+
+.EditButton {
+  background-color: #e03368;
+  border: none;
+  border-radius: 10px;
+  color: white;
+}
+
+
+.DelteButton {
+  width: 158px;
+  height: 52px;
+  background-color: #fae4eb;
+  padding: 16px 32px;
+  border-radius: 10px;
+  color: #e03368;
+  text-align: center;
+  cursor: pointer;
+}
+
+.Allbutton {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.CencelButton {
+  width: 158px;
+  height: 52px;
+  background: linear-gradient(to right, #ff84a7, #e03368);
+  padding: 16px 32px;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}
+
+.theme_event_custom {
+  width: 20% !important;
+}
+
+.theme_event_cost {
+  width: 7% !important;
+}
+
+.theme_event_location {
+  width: 7% !important;
+}
+
+/* view section */
+
+.viewmodal {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+/* .header_of_modal {
+  height: 223px;
+  width: 100%;
+  padding: 25px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 0.42rem 0.42rem 0 0;
+} */
+
+.header_of_modal {
+  height: 223px;
+  width: 100%;
+  padding: 25px;
+  background-position: center;
+  background-repeat: no-repeat !important; /* Use !important to ensure it takes precedence */
+  background-size: cover !important;
+  border-radius: 0.42rem 0.42rem 0 0;
+}
+.modal_size{
+  padding: 24px;
+}
+
+.header_data {
+  display: flex;
+  justify-content: space-between;
+}
+.cross_button {
+  border-radius: 50%;
+  background-color: #ffffff;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.header_text {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 25px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: white;
+}
+
+.name_and_theme_of_cafe {
+  display: flex;
+  flex-direction: column;
+
+  width: 85% !important;
+  padding: 12px 20px 12px 20px;
+  border-radius: 14px;
+  gap: 12px;
+  background: rgb(255, 255, 255);
+  position: relative;
+  bottom: 30px;
+  box-shadow: 1px 1px 3px 0.3px #989394 inset;
+}
+
+
+  .name_and_theme_of_cafe_1{
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    
+  }
+
+  .name_and_theme_of_cafe_2{
+      color:#989394;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 19px;
+      letter-spacing: 0em;
+      text-align: left;
+
+  }
+
+  .name_and_theme_of_cafe_2 :first-child{
+    color:#ff84a7;
+  }
+
+  .name_and_theme_of_cafe_3 :first-child{
+    height: 20px;
+    width: 16px;
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+  .name_and_theme_of_cafe_3{
+      color:#f1608b;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 19px;
+      letter-spacing: 0em;
+      text-align: left;
+
+  }
+
+
+
+
+
+.content_section_of_view_modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.description_of_view{
+  width:82%;
+}
+
+
+  .description_of_view_1{
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 8px;
+  }
+
+  .description_of_view_2{
+
+font-size: 15px;
+font-weight: 400;
+line-height: 19px;
+letter-spacing: 0em;
+text-align: justify;
+color:#989394;
+
+  }
+
+
+.cost_of_view
+{
+  width:82%;
+  margin-top:3%;
+  margin-bottom: 5%;
+}
+
+  .cost_of_view_1{
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: left;
+  margin-bottom: 5px;
+
+  }
+  .cost_of_view_2{
+    color: #000;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px; 
+
+  }
+
+
+
+/* Delete modal all styles ************************************************************************************************* */ 
+
+
+.modal_content_1{
+  width: 485px !important;
+  /* height: 258px !important; */
+  border-radius: 24px !important;
+  
+}
+
+
+.delete_modal_text{
+  text-align: left;
+  margin-bottom: 24px;
+  
+  color: #000;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px; /* 140% */
+  letter-spacing: 0.28px;
+  
+  }
+
+  
+.delete_modal_text_1{
+  color: #211F1F;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.224px;
+  margin-bottom: 22px;
+}
+
+
+.delete_buttons_section{
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.cancel_button_of_delete_section{
+  width:158px;
+  height: 52px;
+  background: linear-gradient(to right, #FF84A7, #E03368);
+  padding:16px 32px;
+  border-radius: 10px;
+  color:white;
+  text-align: center;
+  cursor: pointer;
+}
+
+.cancel_button_of_delete_section:hover{
+  background: linear-gradient(to right, #FF84A7, #E03368);
+  box-shadow: -3px 3px 7px 3px #888888;
+}
+
+
+
+.delete_button_of_delete_section{
+  width:158px;
+  height: 52px;
+  background-color: #FAE4EB;
+  padding:16px 32px;
+  border-radius: 10px;
+  color: #E03368;
+  text-align: center;
+  cursor: pointer;
+}
+
+.delete_button_of_delete_section:hover{
+  box-shadow:3px 3px 7px 3px #888888;
+}

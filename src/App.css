@@ -1,0 +1,437 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Patrick+Hand&family=Poppins:wght@100;400&family=Roboto&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif !important;
+}
+
+
+:root {
+    --primaryColor: rgba(0, 0, 0, 0.7);
+    --primaryFillColor: rgb(0, 0, 0,1);
+    --textBlack: rgba(54, 54, 54, 1);
+    --hoverPrimaryBtn: rgba(0, 0, 0);
+    --formShadow: rgba(46, 50, 43, 0.25);
+    --textSecondary: #3d3d3d;
+}
+
+
+html {
+    overflow: hidden;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--primaryColor);
+    border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--hoverPrimaryBtn);
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+h1,h2,h3,h4,h5,h6{
+    color: #364A63 !important;
+}
+
+.css-cveggr-MuiListItemIcon-root {
+    min-width: 28px !important;
+}
+
+.css-1f8bwsm{
+    min-width: 28px !important;
+}
+
+.css-1ygcj2i-MuiTableCell-root {
+    font-weight: 600 !important;
+    color: var(--textSecondary) !important;
+}
+
+.css-78c6dr-MuiToolbar-root-MuiTablePagination-toolbar {
+    display: flex !important;
+    align-items: baseline !important;
+}
+
+.css-12i7wg6-MuiPaper-root-MuiDrawer-paper {
+    z-index: 1045 !important;
+}
+
+.css-1e797rr-MuiPaper-root-MuiAppBar-root {
+    z-index: 1045 !important;
+}
+
+.css-1l8j5k8 {
+    z-index: 1045 !important;
+}
+
+.drawer {
+    width: 450px !important;
+}
+
+.css-1yw475k {
+    z-index: 1045 !important;
+}
+
+.css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root {
+    border-radius: 5px !important;
+}
+
+.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+    padding: 7.2px !important;
+    border-radius: 5px !important;
+}
+
+.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.MuiSelect-select {
+    /* height: auto; */
+    height: 25px !important;
+    text-overflow: ellipsis;
+    white-space: unset !important;
+    overflow: hidden;
+    max-height: 25px !important;
+    font-size: 14px !important;
+}
+
+.css-jtlhu6-MuiTablePagination-root {
+    overflow: hidden !important;
+    color: rgba(0, 0, 0);
+    font-size: 0.875rem;
+}
+
+.css-qiwgdb {
+    padding: 7.5px 14px !important;
+}
+
+.activeTab {
+    color: #7F8DFF !important;
+
+    svg {
+        color: #7F8DFF !important;
+    }
+}
+
+.activeTab2 {
+    border-bottom: 2px solid var(--primaryColor);
+}
+
+.transition-2 {
+    transition: 0.3s all !important;
+}
+
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    position: absolute;
+    background: white;
+    .table {
+        width: 100%;
+        min-width: 1000px !important;
+    }
+}
+
+/* width */
+.table-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+/* Track */
+.table-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+.table-container::-webkit-scrollbar-thumb {
+    background: #b6b1b1;
+}
+
+/* Handle on hover */
+.table-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+
+
+.f-11 {
+    font-size: 11px !important;
+}
+
+.f-12 {
+    font-size: 12px !important;
+}
+
+.f-13 {
+    font-size: 0.8125rem !important;
+}
+
+.f-14 {
+    font-size: 0.875rem !important;
+}
+
+.f-15 {
+    font-size: 15px !important;
+}
+
+/* font weight start  */
+
+.fw-300 {
+    font-weight: 300 !important;
+}
+
+.fw-400 {
+    font-weight: 400 !important;
+}
+
+.fw-500 {
+    font-weight: 500 !important;
+}
+
+.fw-600 {
+    font-weight: 600 !important;
+}
+
+.fw-700 {
+    font-weight: 700 !important;
+}
+
+.fw-800 {
+    font-weight: 800 !important;
+}
+
+/* font weight end  */
+
+
+/* buttons style start  */
+
+.btn-radius{
+    border-radius: 20px !important;
+}
+
+.btn-primary {
+    /* background: var(--primaryColor) !important;
+    border-color: var(--primaryColor) !important; */
+    color: white !important;
+}
+
+.btn-primary:hover {
+    /* background: var(--hoverPrimaryBtn) !important;
+    border-color: var(--hoverPrimaryBtn) !important; */
+    color: white !important;
+}
+
+/* buttons style end  */
+
+
+/* text style start  */
+
+
+
+.text-primary {
+    color: var(--primaryColor) !important;
+}
+
+.text-secondary {
+    color: var(--textSecondary) !important;
+}
+
+.text-gray {
+    color: gray !important;
+}
+
+.text-black {
+    color: var(--textBlack);
+}
+
+.text-white {
+    color: white !important;
+}
+
+/* text style end  */
+
+
+
+
+/* form style start  */
+
+.form-check-input:checked {
+    background-color: var(--primaryColor) !important;
+    border-color: var(--primaryColor) !important;
+}
+
+input[type='checked']:checked {
+    background-color: var(--primaryColor) !important;
+    border-color: var(--primaryColor) !important;
+}
+
+.form-check-input:focus {
+    border-color: var(--primaryColor) !important;
+    outline: 0 !;
+    box-shadow: 0 0 0 .25rem var(--formShadow) !important;
+}
+
+.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input:focus {
+    border-color: var(--primaryColor) !important;
+    outline: 0 !important;
+    box-shadow: 0 0 0 .25rem var(--formShadow) !important;
+}
+
+.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.Mui-checked,
+.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.MuiCheckbox-indeterminate {
+    color: var(--primaryColor) !important;
+}
+
+.form-control:focus {
+    border-color: var(--primaryColor) !important;
+    outline: 0;
+    box-shadow: 0 0 0 .25rem var(--formShadow) !important;
+}
+
+.form-select:focus {
+    border-color: var(--primaryColor) !important;
+    outline: 0;
+    box-shadow: 0 0 0 .25rem var(--formShadow) !important;
+}
+
+select option:hover {
+
+    background: var(--primaryColor) !important;
+}
+
+/* form style end  */
+
+
+.p-relative {
+    position: relative;
+}
+
+.pendingStatus {
+    color: black;
+    background: rgba(255, 255, 0, 0.2);
+    padding: 2px 5px;
+    border-radius: 5px;
+    font-size: 10px;
+}
+
+.rejectedStatus {
+    color: red;
+    background: rgba(255, 0, 0, 0.2);
+    padding: 2px 5px;
+    border-radius: 5px;
+    font-size: 10px;
+}
+
+.approvedStatus {
+    color: green;
+    background: rgba(0, 128, 0, 0.2);
+    padding: 2px 5px;
+    border-radius: 5px;
+    font-size: 10px;
+}
+
+
+.p-treetable-table {
+
+    td {
+        border-bottom: 1px solid rgb(231, 227, 227) !important;
+    }
+}
+
+
+.banneruploadContainer{
+    width: 100%;
+    border: 1px dashed gray;
+    padding: 20px;
+}
+
+.bannerUpload2{
+    width: 100%;
+    height: 125px;
+    margin: 0 auto;
+    max-width: 330px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px dashed gray;
+    font-size: 18px;
+    font-weight: 500;
+    color: gray;
+    background: rgb(235, 232, 232);
+}
+.bannerUpload3{
+    width: 100%;
+    height: 170px;
+    margin: 0 auto;
+    max-width: 330px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px dashed gray;
+    font-size: 18px;
+    font-weight: 500;
+    color: gray;
+    background: rgb(235, 232, 232);
+}
+.bannerUpload{
+    width: 100%;
+    height: 160px;
+    margin: 0 auto;
+    max-width: 330px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px dashed gray;
+    font-size: 18px;
+    font-weight: 500;
+    color: gray;
+    background: rgb(235, 232, 232);
+}
+.bannerUploadimg{
+    width: 100%;
+    height: 160px;
+    margin: 0 auto;
+    max-width: 330px;
+    border: 1px dashed gray;
+    overflow: hidden;
+}
+.bannerUploadimg3{
+    width: 100%;
+    height: 170px;
+    margin: 0 auto;
+    max-width: 330px;
+    border: 1px dashed gray;
+    overflow: hidden;
+}
+.bannerUploadimg2{
+    width: 100%;
+    height: 125px;
+    margin: 0 auto;
+    max-width: 330px;
+    border: 1px dashed gray;
+    overflow: hidden;
+}
+
+.MuiAutocomplete-hasPopupIcon.MuiAutocomplete-hasClearIcon.css-1izmjjd-MuiAutocomplete-root .MuiOutlinedInput-root {
+    height: auto !important;
+}
+
+.MuiAutocomplete-hasPopupIcon.MuiAutocomplete-hasClearIcon.css-vjklze .MuiOutlinedInput-root {
+    height: auto !important;
+}
+
+/* .p-treetable-header tr{
+  border: 1px solid lightgray !important;
+
+} */
