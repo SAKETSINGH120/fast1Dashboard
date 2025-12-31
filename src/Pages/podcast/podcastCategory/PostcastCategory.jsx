@@ -108,6 +108,7 @@ export default function PodcastCategory() {
             <TableHead>
               <TableRow>
                 <TableCell>Name</TableCell>
+                <TableCell>Thumbnail</TableCell>
                 <TableCell>Priority</TableCell>
                 <TableCell>Status</TableCell>
                 {/* <TableCell>Status</TableCell>
@@ -125,6 +126,27 @@ export default function PodcastCategory() {
                     // onClick={() => navigate(`view/${res?._id}`)}
                   >
                     {res?.name}
+                  </TableCell>
+                  <TableCell className="pointer">
+                    {res?.thumbnail ? (
+                      <img
+                        src={`${window.location.origin.includes('localhost') ? 'http://localhost:4202' : 'https://admin.fast1.app'}/${res.thumbnail}`}
+                        alt={res?.name}
+                        style={{
+                          width: "80px",
+                          height: "50px",
+                          objectFit: "cover",
+                          borderRadius: "4px",
+                          border: "1px solid #dee2e6",
+                        }}
+                        onError={(e) => {
+                          e.target.style.display = "none";
+                          e.target.parentElement.innerHTML = `<span style="color: #999;">No Image</span>`;
+                        }}
+                      />
+                    ) : (
+                      <span style={{ color: "#999" }}>No Image</span>
+                    )}
                   </TableCell>
                   <TableCell
                     className="pointer text-capitalize"

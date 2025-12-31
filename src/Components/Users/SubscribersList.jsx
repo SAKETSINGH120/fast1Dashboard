@@ -23,6 +23,7 @@ import { Box, TablePagination } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { loader } from "../../utils";
 import { getAllUsersWithSubscriptions } from "../service/admin";
+import { formatDateTime } from "../../utils/dateTimeFormate";
 
 const SubscribersList = () => {
   const [data, setData] = useState([]);
@@ -260,9 +261,7 @@ const SubscribersList = () => {
                             display="block"
                             sx={{ mt: 0.5 }}
                           >
-                            {new Date(
-                              res.latestSubscription.startDate
-                            ).toLocaleDateString()}
+                            {formatDateTime(res.latestSubscription.startDate)}
                           </Typography>
                         </Box>
                       )}

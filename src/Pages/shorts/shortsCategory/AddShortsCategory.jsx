@@ -13,10 +13,13 @@ import {
   editShortsCategory,
   getAllShortsCategory,
 } from "../../../Components/service/admin";
+import { baseUrl } from "../../../Components/service/Api";
 
 export const AddShortsCategory = ({ onSubmit, mode, formData }) => {
   let [drawer, setDrawer] = useState(false);
   let [allCategory, setAllCategory] = useState([]);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [imagePreview, setImagePreview] = useState("");
   const {
     control,
     handleSubmit,
@@ -29,10 +32,7 @@ export const AddShortsCategory = ({ onSubmit, mode, formData }) => {
       name: "",
       priority: "",
       status: true,
-      //   plackage_price: "",
-      //   plackage_type: null,
-      //   device_limit: "",
-      //   selected_channels: [],
+      thumbnail: null,
     },
   });
 
@@ -53,25 +53,37 @@ export const AddShortsCategory = ({ onSubmit, mode, formData }) => {
     }
   }
 
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setSelectedImage(file);
+      setValue("thumbnail", file);
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImagePreview(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   async function formSubmit(data) {
     try {
       loader.start();
 
-      const payload = {
-        name: data.name,
-        priority: Number(data.priority),
-        status: Boolean(data.status),
-      };
+      const uploadData = new FormData();
+      uploadData.append("name", data.name);
+      uploadData.append("priority", Number(data.priority));
+      uploadData.append("status", Boolean(data.status));
 
-      //   let channelData = allChannels
-      //     .filter((e) => data.selected_channels.some((d) => d == e._id))
-      //     .map((e) => ({ category_id: e.category._id, channel_id: e._id }));
-      //   data.selected_channels = channelData;
+      if (selectedImage) {
+        uploadData.append("thumbnail", selectedImage);
+      }
+
       if (mode === "edit") {
-        let res = await editShortsCategory(formData._id, payload);
+        let res = await editShortsCategory(formData._id, uploadData);
         snackbar.success("Video Category updated successfully");
       } else {
-        let res = await createShortsCategory(payload);
+        let res = await createShortsCategory(uploadData);
         snackbar.success("Video Category created successfully");
       }
       onSubmit();
@@ -79,11 +91,10 @@ export const AddShortsCategory = ({ onSubmit, mode, formData }) => {
         name: "",
         priority: "",
         status: true,
-        // plackage_price: "",
-        // plackage_type: null,
-        // device_limit: "",
-        // selected_channels: [],
+        thumbnail: null,
       });
+      setSelectedImage(null);
+      setImagePreview("");
       setDrawer(false);
     } catch (error) {
       console.error("Error submitting shorts category:", error);
@@ -119,21 +130,17 @@ export const AddShortsCategory = ({ onSubmit, mode, formData }) => {
       name,
       priority,
       status,
-      //   plackage_price,
-      //   plackage_type,
-      //   device_limit,
-      //   selected_channels,
+      thumbnail,
     } = formData;
 
     reset({
       name,
       priority,
       status: status !== undefined ? Boolean(status) : true,
-      //   plackage_price,
-      //   plackage_type,
-      //   device_limit,
-      //   selected_channels: selected_channels.map((e) => e.channel_id),
+      thumbnail: null,
     });
+    setSelectedImage(null);
+    setImagePreview(thumbnail || "");
     setDrawer(true);
   }
 
@@ -243,6 +250,48 @@ export const AddShortsCategory = ({ onSubmit, mode, formData }) => {
               {errors.status && (
                 <p className="text-danger">{errors.status.message}</p>
               )}
+            </div>
+
+            <div className="mt-3">
+              <label className="form-label mb-1" htmlFor="thumbnail">
+                Thumbnail Upload (Optional)
+              </label>
+              <Controller
+                name="thumbnail"
+                control={control}
+                defaultValue={null}
+                render={({ field: { value, onChange } }) => {
+                  return (
+                    <div>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        onChange={handleImageChange}
+                        className="form-control"
+                      />
+                      {imagePreview && (
+                        <div className="mt-2">
+                          <img
+                            src={
+                              imagePreview.startsWith("public/")
+                                ? `${baseUrl}/${imagePreview}`
+                                : imagePreview
+                            }
+                            alt="Preview"
+                            style={{
+                              width: "100px",
+                              height: "60px",
+                              objectFit: "cover",
+                              borderRadius: "4px",
+                              border: "1px solid #dee2e6",
+                            }}
+                          />
+                        </div>
+                      )}
+                    </div>
+                  );
+                }}
+              />
             </div>
             {/* <div className="mt-3">
               <label className="form-label mb-1" htmlFor="name">
