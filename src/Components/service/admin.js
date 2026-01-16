@@ -920,8 +920,11 @@ export const deleteDevotionalsCategory = async (id) => {
 };
 
 // Sports module
-export const getAllSports = async () => {
-  return await axios.get(`${baseUrl}${API.sports.getSports}`);
+export const getAllSports = async (categoryId = null) => {
+  const url = categoryId
+    ? `${baseUrl}${API.sports.getSports}?category=${categoryId}`
+    : `${baseUrl}${API.sports.getSports}`;
+  return await axios.get(url);
 };
 
 export const createSports = async (data) => {
@@ -934,6 +937,28 @@ export const editSports = async (id, data) => {
 
 export const deleteSports = async (id) => {
   return await axios.delete(`${baseUrl}${API.sports.deleteSports}/${id}`);
+};
+
+// sport category
+export const getAllSportsCategory = async () => {
+  return await axios.get(`${baseUrl}${API.sports.getSportsCategory}`);
+};
+
+export const createSportsCategory = async (data) => {
+  return await axios.post(`${baseUrl}${API.sports.addSportsCategory}`, data);
+};
+
+export const editSportsCategory = async (id, data) => {
+  return await axios.patch(
+    `${baseUrl}${API.sports.updateSportsCategory}/${id}`,
+    data
+  );
+};
+
+export const deleteSportsCategory = async (id) => {
+  return await axios.delete(
+    `${baseUrl}${API.sports.deleteSportsCategory}/${id}`
+  );
 };
 
 // Dummy function for Watcho plans - TODO: Replace with actual API endpoint

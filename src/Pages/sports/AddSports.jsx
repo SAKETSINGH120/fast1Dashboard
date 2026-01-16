@@ -6,6 +6,7 @@ import {
   createSports,
   editSports,
   getAllSports,
+  getAllSportsCategory,
 } from "../../Components/service/admin";
 
 import { loader, snackbar } from "../../utils";
@@ -14,6 +15,7 @@ import CustomDrawer from "../../Components/CustomDrawer/CustomDrawer";
 
 export const AddSports = ({ onSubmit, mode, formData }) => {
   let [drawer, setDrawer] = useState(false);
+  let [categories, setCategories] = useState([]);
   const {
     control,
     handleSubmit,
@@ -26,8 +28,25 @@ export const AddSports = ({ onSubmit, mode, formData }) => {
       name: "",
       url: "",
       priority: "",
+      category: "",
     },
   });
+
+  useEffect(() => {
+    if (drawer) {
+      fetchCategories();
+    }
+  }, [drawer]);
+
+  async function fetchCategories() {
+    try {
+      const response = await getAllSportsCategory();
+      setCategories(response?.data?.data || []);
+    } catch (error) {
+      console.error("Error fetching sports categories:", error);
+      snackbar.error("Failed to load sports categories");
+    }
+  }
 
   async function formSubmit(data) {
     try {
@@ -37,6 +56,7 @@ export const AddSports = ({ onSubmit, mode, formData }) => {
         name: data.name,
         url: data.url,
         priority: Number(data.priority),
+        category: data.category,
       };
 
       if (mode === "edit") {
@@ -53,6 +73,7 @@ export const AddSports = ({ onSubmit, mode, formData }) => {
         name: "",
         url: "",
         priority: "",
+        category: "",
       });
       setDrawer(false);
     } catch (error) {
@@ -68,12 +89,13 @@ export const AddSports = ({ onSubmit, mode, formData }) => {
   function editClick() {
     console.log(formData);
 
-    let { name, url, priority } = formData;
+    let { name, url, priority, category } = formData;
 
     reset({
       name,
       url,
       priority,
+      category: category?._id || category || "",
     });
     setDrawer(true);
   }
@@ -121,6 +143,36 @@ export const AddSports = ({ onSubmit, mode, formData }) => {
                       }`}
                       placeholder="Sports Name"
                     />
+                  );
+                }}
+              />
+            </div>
+
+            <div className="mt-3">
+              <label className="form-label mb-1" htmlFor="category">
+                Category
+              </label>
+              <Controller
+                name="category"
+                control={control}
+                rules={{ required: "Category is required" }}
+                defaultValue={null}
+                render={({ field: { value, onChange } }) => {
+                  return (
+                    <select
+                      value={value}
+                      onChange={onChange}
+                      className={`form-control ${
+                        errors.category ? "Validation" : ""
+                      }`}
+                    >
+                      <option value="">Select Category</option>
+                      {categories.map((cat) => (
+                        <option key={cat._id} value={cat._id}>
+                          {cat.name}
+                        </option>
+                      ))}
+                    </select>
                   );
                 }}
               />

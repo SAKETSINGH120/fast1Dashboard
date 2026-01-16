@@ -69,6 +69,7 @@ import ShortsCategory from "./Pages/shorts/shortsCategory/ShortsCategory";
 import PodcastCategory from "./Pages/podcast/podcastCategory/PostcastCategory";
 import TunesCategory from "./Pages/tunes/tunesCategory/TunesCategory";
 import SecurityCheck from "./Pages/securityCheck/SecurityCheck";
+import SportsCategory from "./Pages/sports/sportsCategory/SportsCategory";
 
 export const Router = () => {
   let loader = useSelector((e) => e.loader);
@@ -175,6 +176,7 @@ export const Router = () => {
           }
           {/* Sports */}
           {<Route path="/sports" element={<SportsList />} />}
+          {<Route path="/sportsCategory" element={<SportsCategory />} />}
           {/* Referral */}
           <Route path="/referrals" element={<ReferralList />} />
           {/* HighLights */}

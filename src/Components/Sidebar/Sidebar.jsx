@@ -110,6 +110,7 @@ export default function Sidebar({ children }) {
   const [togglePodcasts, setTogglePodcasts] = useState(false); // Podcasts dropdown
   const [toggleTunes, setToggleTunes] = useState(false); // Tunes dropdown
   const [toggleDevotionals, setToggleDevotionals] = useState(false); // Devotionals dropdown
+  const [toggleSports, setToggleSports] = useState(false); // Sports dropdown
 
   const navigate = useNavigate();
   let location = window.location.href;
@@ -1102,22 +1103,6 @@ export default function Sidebar({ children }) {
                 <List className="">
                   <ListItemButton
                     className={` ${
-                      activeRoute("short") ? "activeTab" : ""
-                    } rounded`}
-                    onClick={() => navigate("/short")}
-                  >
-                    <ListItemIcon>
-                      <BiMoviePlay
-                        size={14}
-                        color={activeRoute("short") ? "#3B76EF" : "#526484"}
-                      />
-                    </ListItemIcon>
-                    <ListItemText
-                      primary={<div className="f-14">Shorts List</div>}
-                    />
-                  </ListItemButton>
-                  <ListItemButton
-                    className={` ${
                       activeRoute("shortCategory") ? "activeTab" : ""
                     } rounded`}
                     onClick={() => navigate("/shortCategory")}
@@ -1132,6 +1117,22 @@ export default function Sidebar({ children }) {
                     </ListItemIcon>
                     <ListItemText
                       primary={<div className="f-14">Shorts Category</div>}
+                    />
+                  </ListItemButton>
+                  <ListItemButton
+                    className={` ${
+                      activeRoute("short") ? "activeTab" : ""
+                    } rounded`}
+                    onClick={() => navigate("/short")}
+                  >
+                    <ListItemIcon>
+                      <BiMoviePlay
+                        size={14}
+                        color={activeRoute("short") ? "#3B76EF" : "#526484"}
+                      />
+                    </ListItemIcon>
+                    <ListItemText
+                      primary={<div className="f-14">Shorts List</div>}
                     />
                   </ListItemButton>
                 </List>
@@ -1177,22 +1178,6 @@ export default function Sidebar({ children }) {
                 <List className="">
                   <ListItemButton
                     className={` ${
-                      activeRoute("podcast") ? "activeTab" : ""
-                    } rounded`}
-                    onClick={() => navigate("/podcast")}
-                  >
-                    <ListItemIcon>
-                      <MdPodcasts
-                        size={14}
-                        color={activeRoute("podcast") ? "#3B76EF" : "#526484"}
-                      />
-                    </ListItemIcon>
-                    <ListItemText
-                      primary={<div className="f-14">Podcasts List</div>}
-                    />
-                  </ListItemButton>
-                  <ListItemButton
-                    className={` ${
                       activeRoute("podcastCategory") ? "activeTab" : ""
                     } rounded`}
                     onClick={() => navigate("/podcastCategory")}
@@ -1207,6 +1192,22 @@ export default function Sidebar({ children }) {
                     </ListItemIcon>
                     <ListItemText
                       primary={<div className="f-14">Podcasts Category</div>}
+                    />
+                  </ListItemButton>
+                  <ListItemButton
+                    className={` ${
+                      activeRoute("podcast") ? "activeTab" : ""
+                    } rounded`}
+                    onClick={() => navigate("/podcast")}
+                  >
+                    <ListItemIcon>
+                      <MdPodcasts
+                        size={14}
+                        color={activeRoute("podcast") ? "#3B76EF" : "#526484"}
+                      />
+                    </ListItemIcon>
+                    <ListItemText
+                      primary={<div className="f-14">Podcasts List</div>}
                     />
                   </ListItemButton>
                 </List>
@@ -1250,22 +1251,6 @@ export default function Sidebar({ children }) {
                 <List className="">
                   <ListItemButton
                     className={` ${
-                      activeRoute("tune") ? "activeTab" : ""
-                    } rounded`}
-                    onClick={() => navigate("/tune")}
-                  >
-                    <ListItemIcon>
-                      <BsMusicNoteList
-                        size={14}
-                        color={activeRoute("tune") ? "#3B76EF" : "#526484"}
-                      />
-                    </ListItemIcon>
-                    <ListItemText
-                      primary={<div className="f-14">Tunes List</div>}
-                    />
-                  </ListItemButton>
-                  <ListItemButton
-                    className={` ${
                       activeRoute("tuneCategory") ? "activeTab" : ""
                     } rounded`}
                     onClick={() => navigate("/tuneCategory")}
@@ -1280,6 +1265,22 @@ export default function Sidebar({ children }) {
                     </ListItemIcon>
                     <ListItemText
                       primary={<div className="f-14">Tunes Category</div>}
+                    />
+                  </ListItemButton>
+                  <ListItemButton
+                    className={` ${
+                      activeRoute("tune") ? "activeTab" : ""
+                    } rounded`}
+                    onClick={() => navigate("/tune")}
+                  >
+                    <ListItemIcon>
+                      <BsMusicNoteList
+                        size={14}
+                        color={activeRoute("tune") ? "#3B76EF" : "#526484"}
+                      />
+                    </ListItemIcon>
+                    <ListItemText
+                      primary={<div className="f-14">Tunes List</div>}
                     />
                   </ListItemButton>
                 </List>
@@ -1325,24 +1326,6 @@ export default function Sidebar({ children }) {
                 <List className="">
                   <ListItemButton
                     className={` ${
-                      activeRoute("devotionals") ? "activeTab" : ""
-                    } rounded`}
-                    onClick={() => navigate("/devotionals")}
-                  >
-                    <ListItemIcon>
-                      <MdPodcasts
-                        size={14}
-                        color={
-                          activeRoute("devotionals") ? "#3B76EF" : "#526484"
-                        }
-                      />
-                    </ListItemIcon>
-                    <ListItemText
-                      primary={<div className="f-14">Devotionals List</div>}
-                    />
-                  </ListItemButton>
-                  <ListItemButton
-                    className={` ${
                       activeRoute("devotionalsCategory") ? "activeTab" : ""
                     } rounded`}
                     onClick={() => navigate("/devotionalsCategory")}
@@ -1361,22 +1344,101 @@ export default function Sidebar({ children }) {
                       primary={<div className="f-14">Devotionals Category</div>}
                     />
                   </ListItemButton>
+                  <ListItemButton
+                    className={` ${
+                      activeRoute("devotionals") ? "activeTab" : ""
+                    } rounded`}
+                    onClick={() => navigate("/devotionals")}
+                  >
+                    <ListItemIcon>
+                      <MdPodcasts
+                        size={14}
+                        color={
+                          activeRoute("devotionals") ? "#3B76EF" : "#526484"
+                        }
+                      />
+                    </ListItemIcon>
+                    <ListItemText
+                      primary={<div className="f-14">Devotionals List</div>}
+                    />
+                  </ListItemButton>
                 </List>
               </div>
+              {/* Sports with dropdown */}
               <ListItemButton
-                className={` ${
-                  activeRoute("sports") ? "activeTab" : ""
-                } rounded`}
-                onClick={() => navigate("/sports")}
+                className={`rounded`}
+                onClick={() => setToggleSports(!toggleSports)}
               >
                 <ListItemIcon>
                   <BiMoviePlay
                     size={16}
-                    color={activeRoute("sports") ? "#3B76EF" : "#526484"}
+                    color={
+                      toggleSports || activeRoute("sports")
+                        ? "#3B76EF"
+                        : "#526484"
+                    }
                   />
                 </ListItemIcon>
-                <ListItemText primary={<div className="f-15">Sports</div>} />
+                <ListItemText
+                  primary={
+                    <div className="f-15 w-100 d-flex justify-content-between align-items-center">
+                      Sports
+                      {toggleSports ? (
+                        <IoIosArrowUp className="ms-2" size={12} />
+                      ) : (
+                        <IoIosArrowForward className="ms-2" size={12} />
+                      )}
+                    </div>
+                  }
+                />
               </ListItemButton>
+              {/* Sports Subdropdown */}
+              <div
+                className={`px-1 ps-2`}
+                style={{
+                  height: toggleSports ? "auto" : "0px",
+                  overflow: toggleSports ? "visible" : "hidden",
+                  transition: "height 0.3s",
+                  marginLeft: "6px",
+                }}
+              >
+                <List className="">
+                  <ListItemButton
+                    className={` ${
+                      activeRoute("sportsCategory") ? "activeTab" : ""
+                    } rounded`}
+                    onClick={() => navigate("/sportsCategory")}
+                  >
+                    <ListItemIcon>
+                      <BiSolidCategory
+                        size={14}
+                        color={
+                          activeRoute("sportsCategory") ? "#3B76EF" : "#526484"
+                        }
+                      />
+                    </ListItemIcon>
+                    <ListItemText
+                      primary={<div className="f-14">Sports Category</div>}
+                    />
+                  </ListItemButton>
+                  <ListItemButton
+                    className={` ${
+                      activeRoute("sports") ? "activeTab" : ""
+                    } rounded`}
+                    onClick={() => navigate("/sports")}
+                  >
+                    <ListItemIcon>
+                      <BiMoviePlay
+                        size={14}
+                        color={activeRoute("sports") ? "#3B76EF" : "#526484"}
+                      />
+                    </ListItemIcon>
+                    <ListItemText
+                      primary={<div className="f-14">Sports List</div>}
+                    />
+                  </ListItemButton>
+                </List>
+              </div>
             </List>
           </div>
 

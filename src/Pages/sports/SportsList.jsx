@@ -15,7 +15,11 @@ import {
   paginate,
   snackbar,
 } from "../../utils";
-import { deleteSports, getAllSports } from "../../Components/service/admin";
+import {
+  deleteSports,
+  getAllSports,
+  getAllSportsCategory,
+} from "../../Components/service/admin";
 import { DeleteButton } from "../../Components/Buttons/DeleteButton";
 import { AddSports } from "./AddSports";
 
@@ -24,6 +28,8 @@ export default function SportsList() {
   const [allData, setAllData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [page, setPage] = useState(0);
+  const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("");
   const rowsPerPage = 10;
 
   const navigate = useNavigate();
@@ -55,11 +61,11 @@ export default function SportsList() {
     return `https://img.youtube.com/vi/${videoId}/${quality}.jpg`;
   };
 
-  // Fetch all shorts
-  async function getAllSportsData() {
+  // Fetch all sports with optional category filter
+  async function getAllSportsData(categoryId = null) {
     try {
       loader.start();
-      let res = await getAllSports();
+      let res = await getAllSports(categoryId);
       setAllData(res?.data?.data || []);
       setFilteredData(res?.data?.data || []);
     } catch (error) {
@@ -69,13 +75,34 @@ export default function SportsList() {
     }
   }
 
+  // Fetch all categories
+  async function fetchCategories() {
+    try {
+      const response = await getAllSportsCategory();
+      setCategories(response?.data?.data || []);
+    } catch (error) {
+      console.error("Error fetching sports categories:", error);
+      snackbar.error("Failed to load sports categories");
+    }
+  }
+
   useEffect(() => {
     getAllSportsData();
+    fetchCategories();
   }, []);
+
+  // Handle category filter change
+  useEffect(() => {
+    getAllSportsData(selectedCategory || null);
+  }, [selectedCategory]);
 
   // Handle search
   useEffect(() => {
-    const searchedData = searchDataWithMultipleKeys(["name"], allData, search);
+    const searchedData = searchDataWithMultipleKeys(
+      ["name", "category"],
+      allData,
+      search
+    );
     setFilteredData(searchedData);
     setPage(0);
   }, [search, allData]);
@@ -108,17 +135,36 @@ export default function SportsList() {
     <>
       <h2 className="fw-600">Sports</h2>
       <div className="row mt-4">
-        <div className="col-lg-5 col-md-6 col-sm-12 col-12">
+        <div className="col-lg-4 col-md-5 col-sm-12 col-12">
           <input
             type="search"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search"
+            placeholder="Search by name"
             className="form-control"
           />
         </div>
+        <div className="col-lg-3 col-md-4 col-sm-12 col-12">
+          <select
+            value={selectedCategory}
+            onChange={(e) => {
+              setSelectedCategory(e.target.value);
+              setPage(0);
+            }}
+            className="form-select"
+          >
+            <option value="">All Categories</option>
+            {categories.map((category) => (
+              <option key={category._id} value={category._id}>
+                {category.name}
+              </option>
+            ))}
+          </select>
+        </div>
         <div className="col w-100 d-flex justify-content-end">
-          <AddSports onSubmit={getAllSportsData} />
+          <AddSports
+            onSubmit={() => getAllSportsData(selectedCategory || null)}
+          />
         </div>
       </div>
       <div className="mt-4">
@@ -127,6 +173,7 @@ export default function SportsList() {
             <TableHead>
               <TableRow>
                 <TableCell>Name</TableCell>
+                <TableCell>Category</TableCell>
                 <TableCell>Video URL</TableCell>
                 <TableCell>Priority</TableCell>
                 <TableCell>Action</TableCell>
@@ -137,6 +184,21 @@ export default function SportsList() {
                 <TableRow hover key={index}>
                   <TableCell className="pointer text-capitalize">
                     {res?.name}
+                  </TableCell>
+                  <TableCell>
+                    <span
+                      style={{
+                        padding: "4px 12px",
+                        borderRadius: "4px",
+                        backgroundColor: "#e3f2fd",
+                        color: "#1976d2",
+                        fontWeight: "500",
+                        fontSize: "13px",
+                        textTransform: "capitalize",
+                      }}
+                    >
+                      {res?.category?.name || res?.category || "N/A"}
+                    </span>
                   </TableCell>
                   <TableCell className="pointer">
                     {getYouTubeThumbnail(res?.url) ? (

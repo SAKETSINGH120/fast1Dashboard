@@ -48,7 +48,21 @@ export default function HomeTitleList() {
 
   // search
   useEffect(() => {
-    const searchedData = searchDataWithMultipleKeys(["title"], allData, search);
+    const searchedData = searchDataWithMultipleKeys(
+      [
+        "breakingNews",
+        "info",
+        "advt",
+        "weatherAlert",
+        "headlines",
+        "upcomingProg",
+        "flashAlert",
+        "promo",
+        "publicInterest",
+      ],
+      allData,
+      search
+    );
     setFilteredData(searchedData);
     setPage(0);
   }, [search, allData]);
@@ -79,7 +93,7 @@ export default function HomeTitleList() {
             type="search"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search by title"
+            placeholder="Search by content"
             className="form-control"
           />
         </div>
@@ -93,14 +107,101 @@ export default function HomeTitleList() {
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell>Title</TableCell>
+                <TableCell>Content</TableCell>
                 <TableCell>Action</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {paginatedData.map((item, i) => (
                 <TableRow key={i}>
-                  <TableCell>{item.title}</TableCell>
+                  <TableCell>
+                    <div style={{ maxWidth: "800px" }}>
+                      {item.breakingNews && (
+                        <div className="mb-2">
+                          <strong style={{ color: "#d32f2f" }}>
+                            Breaking News:
+                          </strong>
+                          <p style={{ margin: "4px 0 0 0", fontSize: "14px" }}>
+                            {item.breakingNews}
+                          </p>
+                        </div>
+                      )}
+                      {item.info && (
+                        <div className="mb-2">
+                          <strong style={{ color: "#1976d2" }}>Info:</strong>
+                          <p style={{ margin: "4px 0 0 0", fontSize: "14px" }}>
+                            {item.info}
+                          </p>
+                        </div>
+                      )}
+                      {item.advt && (
+                        <div className="mb-2">
+                          <strong style={{ color: "#ed6c02" }}>Advt:</strong>
+                          <p style={{ margin: "4px 0 0 0", fontSize: "14px" }}>
+                            {item.advt}
+                          </p>
+                        </div>
+                      )}
+                      {item.weatherAlert && (
+                        <div className="mb-2">
+                          <strong style={{ color: "#0288d1" }}>
+                            Weather Alert:
+                          </strong>
+                          <p style={{ margin: "4px 0 0 0", fontSize: "14px" }}>
+                            {item.weatherAlert}
+                          </p>
+                        </div>
+                      )}
+                      {item.headlines && (
+                        <div className="mb-2">
+                          <strong style={{ color: "#2e7d32" }}>
+                            Headlines:
+                          </strong>
+                          <p style={{ margin: "4px 0 0 0", fontSize: "14px" }}>
+                            {item.headlines}
+                          </p>
+                        </div>
+                      )}
+                      {item.upcomingProg && (
+                        <div className="mb-2">
+                          <strong style={{ color: "#9c27b0" }}>
+                            Upcoming Program:
+                          </strong>
+                          <p style={{ margin: "4px 0 0 0", fontSize: "14px" }}>
+                            {item.upcomingProg}
+                          </p>
+                        </div>
+                      )}
+                      {item.flashAlert && (
+                        <div className="mb-2">
+                          <strong style={{ color: "#d84315" }}>
+                            Flash Alert:
+                          </strong>
+                          <p style={{ margin: "4px 0 0 0", fontSize: "14px" }}>
+                            {item.flashAlert}
+                          </p>
+                        </div>
+                      )}
+                      {item.promo && (
+                        <div className="mb-2">
+                          <strong style={{ color: "#7b1fa2" }}>Promo:</strong>
+                          <p style={{ margin: "4px 0 0 0", fontSize: "14px" }}>
+                            {item.promo}
+                          </p>
+                        </div>
+                      )}
+                      {item.publicInterest && (
+                        <div className="mb-2">
+                          <strong style={{ color: "#388e3c" }}>
+                            Public Interest:
+                          </strong>
+                          <p style={{ margin: "4px 0 0 0", fontSize: "14px" }}>
+                            {item.publicInterest}
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  </TableCell>
                   <TableCell>
                     <div className="d-flex gap-2">
                       <AddHomeTitle

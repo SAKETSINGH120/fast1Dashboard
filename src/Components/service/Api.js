@@ -231,7 +231,7 @@ export const API = {
 
   // HomeTitle
   homeTitle: {
-    getHomeTitle: "/homeTitle",
+    getHomeTitle: "/homeTitle/all",
     addHomeTitle: "/homeTitle",
     updateHomeTitle: "/homeTitle",
     deleteHomeTitle: "/homeTitle",
@@ -288,9 +288,13 @@ export const API = {
     addSports: "/sports",
     updateSports: "/sports",
     deleteSports: "/sports",
+    getSportsCategory: "/sports/sportsCategory",
+    addSportsCategory: "/sports/sportsCategory",
+    updateSportsCategory: "/sports/sportsCategory",
+    deleteSportsCategory: "/sports/sportsCategory",
   },
 
-  // Watcho
+  // WatchoSports
   watcho: {
     getWatchoPlans: "/watcho/watcho/all-plans",
   },
